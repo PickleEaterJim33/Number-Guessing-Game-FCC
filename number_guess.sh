@@ -4,13 +4,13 @@ SECRET_NUMBER=$[ $RANDOM % 1000 + 1 ]
 NUMBER_OF_GUESSES=0
 
 GUESS_LOOP() {
-  ((++NUMBER_OF_GUESSES))
   if ! [[ $1 =~ ^[0-9]+$ ]]
   then
     echo -e "\nThat is not an integer, guess again:"
     read GUESS
     GUESS_LOOP $GUESS
   else
+  ((++NUMBER_OF_GUESSES))
     if [[ $1 -eq $SECRET_NUMBER ]]
     then
       echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
