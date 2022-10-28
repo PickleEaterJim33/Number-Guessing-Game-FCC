@@ -51,7 +51,7 @@ CREATE TABLE public.users (
     user_id integer NOT NULL,
     username character varying(22) NOT NULL,
     games_played integer DEFAULT 0,
-    best_game integer DEFAULT '-1'::integer
+    best_game integer DEFAULT 10000000
 );
 
 
@@ -96,7 +96,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN user_id SET DEFAULT nextval('public.u
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.users_user_id_seq', 1, false);
+SELECT pg_catalog.setval('public.users_user_id_seq', 12, true);
 
 
 --
