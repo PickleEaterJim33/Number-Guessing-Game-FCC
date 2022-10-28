@@ -2,7 +2,6 @@
 PSQL="psql --username=freecodecamp --dbname=number_guess --tuples-only -c"
 SECRET_NUMBER=$[ $RANDOM % 1000 + 1 ]
 NUMBER_OF_GUESSES=0
-echo $SECRET_NUMBER
 
 GUESS_LOOP() {
   ((++NUMBER_OF_GUESSES))
@@ -14,7 +13,7 @@ GUESS_LOOP() {
   else
     if [[ $1 -eq $SECRET_NUMBER ]]
     then
-      echo -e "\nYou guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
+      echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
       UPDATE_DATABASE
     else
       if [[ $1 -gt $SECRET_NUMBER ]]
